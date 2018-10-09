@@ -1,0 +1,23 @@
+<div class="grid">
+    <div class="content">
+
+        <div>
+            <h2 id="{{title}}">{{title}}</h2>
+        </div>
+
+        <mat-form-field class="full-width">
+            <textarea matInput rows="3" placeholder="请输入..." [(ngModel)]="inputValue"></textarea>
+        </mat-form-field>
+
+        <p>
+            <button mat-button (click)="makeURLDecode()" >URL解码</button>
+            <button mat-button (click)="makeURLEncode()" >URL编码</button>
+            <button mat-button (click)="makeURLExchange()" >交换输入输出</button>
+            <button mat-button (click)="makeURLClear()" >清空</button>
+        </p>
+
+        <mat-form-field class="full-width">
+            <textarea matInput rows="3" placeholder="..." [(ngModel)]="outputValue"></textarea>
+        </mat-form-field>
+    </div>
+</div>

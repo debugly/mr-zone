@@ -1,0 +1,33 @@
+.grid{
+    height: 100%;
+    overflow: hidden;
+    background-color: #fefefe;
+    border-bottom: 1px solid #eaeaea;
+}
+
+ul{
+    width: 100%;
+    padding: 0px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+ul li{
+    display: inline-block;
+    padding: 0px;
+    margin: 15px;
+}
+
+h1{
+    text-align: center;
+}
+
+.active{
+    color: green;
+}
+
+/*@media (min-width: 1024px) {*/
+    /*h1{*/
+        /*text-align: left;*/
+    /*}*/
+/*}*/
