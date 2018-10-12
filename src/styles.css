@@ -6,9 +6,12 @@
     box-sizing: border-box
 }
 
-html body{
+html body div {
     margin: 0px;
     padding: 0px;
+}
+
+html body{
     font-family: Roboto, sans-serif;
     color: rgba(0, 0, 0, 0.87);
     line-height:1.5;

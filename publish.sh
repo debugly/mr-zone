@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build product
-#npm run build
+npm run build
 
 localPath=".mrmaster"
 alias gitC='git -C $localPath'

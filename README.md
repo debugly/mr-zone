@@ -87,3 +87,14 @@ js箭头函数
 https://blog.fundebug.com/2017/05/25/arrow-function-for-beginner/
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 ```
+
+```
+error TS2339: Property 'expImgClicked' does not exist on type 'Window'
+https://ourcodeworld.com/articles/read/337/how-to-declare-a-new-property-on-the-window-object-with-typescript
+```
+
+```
+--base-href=/mr-zone/
+1、部署到github之后，图片找不到了，所以打包时要配置下
+2、另外代码里图片地址要使用 ./ 而不是 /
+```

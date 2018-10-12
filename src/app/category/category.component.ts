@@ -30,6 +30,11 @@ export class CategoryComponent implements OnInit {
             'categoryId': 8,
             'name': '时间戳',
             'value': 'timestamp'
+        },
+        {
+            'categoryId': 9,
+            'name': 'JSON格式化',
+            'value': 'json'
         }];
 
     lastUrl: string;
