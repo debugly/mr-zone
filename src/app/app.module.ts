@@ -25,6 +25,7 @@ import { QrCodeComponent } from './qrcode/qrcode.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JsonComponent } from './json/json.component';
+import { PasswordComponent } from './password/password.component';
 
 
 
@@ -37,7 +38,8 @@ import { JsonComponent } from './json/json.component';
         UrlCodeComponent,
         QrCodeComponent,
         FooterComponent,
-        JsonComponent
+        JsonComponent,
+        PasswordComponent
     ],
     imports: [
         BrowserModule,

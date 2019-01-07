@@ -35,6 +35,11 @@ export class CategoryComponent implements OnInit {
             'categoryId': 9,
             'name': 'JSON格式化',
             'value': 'json'
+        },
+        {
+            'categoryId': 10,
+            'name': '密码生成器',
+            'value': 'pw'
         }];
 
     lastUrl: string;
