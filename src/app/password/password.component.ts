@@ -19,27 +19,69 @@ export class PasswordComponent implements OnInit {
   useSm = true;
   symbol = '-=#!$%*~';
 
+  confusingSymbols = '';
+  confusingSymbolArr = ['I','l','0','O'];
+  exceptConfusingSymbols = true;
+
   inputSm = '';
   inputLen: number;
 
   pwd = '';
+  error = '';
 
   constructor() { }
 
   ngOnInit() {
+    this.confusingSymbols = this.confusingSymbolArr.join(',');
   }
 
   generate(){
 
     this.pwd = "";
-    
-    const randomChar = function(str:string){
+    this.error = "";
+
+    const arrayIncludeArray = function(a:Array<string>,b:Array<string>){
+      if (a === b) return true;
+      if (a == null || b == null) return false;
+      
+      for (let i = 0; i < b.length; ++i) {
+        if (!a.includes(b[i])){
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    const randomCharWithString = function(str:string){
       if(!str || str.length == 0){
         return null;
       }
       const len = str.length;
       const r = Math.floor(Math.random()*len);
-      return str.substr(r,1);
+      const c = str.substr(r,1);
+      return c;
+    }
+
+    const randomCharExceptConfused = function(cArr:Array<string>,str:string){
+      const arr = str.split("");
+      if(arrayIncludeArray(cArr,arr)){
+        return null;
+      }
+      let c = null;
+      do {
+        const r = randomCharWithString(str);
+        c = arr[r]; 
+      } while (cArr.includes(c));
+
+      if (c == '0'){
+        console.log('fuck!');
+      }
+      return c;
+    } 
+    let myConfusingArr = [];
+    if(this.exceptConfusingSymbols){
+      myConfusingArr = this.confusingSymbolArr;
     }
 
     let str = '';
@@ -47,27 +89,42 @@ export class PasswordComponent implements OnInit {
 
     if(this.useEn){
       str += this.english;
-      pwdArr.push(randomChar(this.english));
+      const c = randomCharExceptConfused(myConfusingArr,this.english);
+      if(c){
+        pwdArr.push(c);
+      }
     }
 
     if(this.useEN){
       str += this.ENGLISH;
-      pwdArr.push(randomChar(this.ENGLISH));
+      const c = randomCharExceptConfused(myConfusingArr,this.ENGLISH);
+      if(c){
+        pwdArr.push(c);
+      }
     }
 
     if(this.useNum){
       str += this.number;
-      pwdArr.push(randomChar(this.number));
+      const c = randomCharExceptConfused(myConfusingArr,this.number);
+      if(c){
+        pwdArr.push(c);
+      }
     }
 
     if(this.useSm){
       str += this.symbol;
-      pwdArr.push(randomChar(this.symbol));
+      const c = randomCharExceptConfused(myConfusingArr,this.symbol);
+      if(c){
+        pwdArr.push(c);
+      }
     }
 
     if(this.inputSm && this.inputSm.length > 0){
       str += this.inputSm;
-      pwdArr.push(randomChar(this.inputSm));
+      const c = randomCharExceptConfused(myConfusingArr,this.inputSm);
+      if(c){
+        pwdArr.push(c);
+      }
     }
 
     if(str.length > 0){
@@ -75,9 +132,18 @@ export class PasswordComponent implements OnInit {
       // 每个输入项都包含，因此密码长度不能小于输入项长度
       if(this.inputLen >= pwdArr.length){
         const need = this.inputLen - pwdArr.length;
+
+        if(arrayIncludeArray(myConfusingArr,arr)){
+            this.error = '生成密码的符号都是易混淆符号！';
+            return;
+        }
+
         for (let index = 0; index < need; index++) {
-          const r = Math.floor(Math.random() * arr.length);
-          const element = arr[r];
+          let element = null;
+          do {
+            const r = Math.floor(Math.random() * arr.length);
+            element = arr[r];
+          } while (myConfusingArr.includes(element));
           pwdArr.push(element);
         }
 
