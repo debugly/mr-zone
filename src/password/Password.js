@@ -6,26 +6,26 @@ export class Password extends Component {
         super(props);
         this.english = 'abcdefghigklmnopqrstuvwxyz';
         this.ENGLISH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        this.NUMBER = '0123456789';
-        this.SYMBOL = '~!@#$%^&*()_+-=[]{}/?<>';
+        this.NUMBER  = '0123456789';
+        this.SYMBOL  = '~!@#$%^&*()_+-=[]{}/?<>';
         this.confusingSymbolArr = ['I','l','0','O'];
 
         this.confusingSymbols = this.confusingSymbolArr.join(',');
         this.state = {
-            useEn : true,
-            useEN : true,
+            useEn  : true,
+            useEN  : true,
             useNum : true,
-            useSm : true,
+            useSm  : true,
             exceptConfusingSymbols : true,
-            inputSm : '',
+            inputSm: '',
             inputLen: 0,
-            pwd : '',
+            pwd   : '',
             error : null
         };
 
-        this.onInputSmChanged = this.onInputSmChanged.bind(this);
+        this.onInputSmChanged  = this.onInputSmChanged.bind(this);
         this.onInputLenChanged = this.onInputLenChanged.bind(this);
-        this.generate = this.generate.bind(this);
+        this.generate          = this.generate.bind(this);
     }
 
     onInputSmChanged(event) {
@@ -111,7 +111,7 @@ export class Password extends Component {
         const charLen = charArr.length;
         if(charLen > 0){
           const pwdArr = [];
-          //密码长度大于生成密码的元组，那么确保每个元组都
+          //密码长度大于生成密码的元组，那么确保每个元组都出现
           if (charLen < this.state.inputLen) {
 
             charArr.forEach(element => {
