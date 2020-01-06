@@ -60,102 +60,85 @@ export class Password extends Component {
           return true;
         }
 
-        const randomCharWithString = function(str){
-          if(!str || str.length == 0){
-            return null;
-          }
-          const len = str.length;
-          const r = Math.floor(Math.random()*len);
-          const c = str.substr(r,1);
-          return c;
+        const randomElementInArray = function(arr){
+          const i = Math.floor(Math.random() * arr.length);
+          let element = arr[i];
+          return element;
         }
     
         const randomCharExceptConfused = function(cArr,str){
           const arr = str.split("");
+          
           if(arrayIncludeArray(cArr,arr)){
             return null;
           }
+
           let c = null;
           do {
-            const r = randomCharWithString(str);
-            c = arr[r]; 
+            c = randomElementInArray(arr);
           } while (cArr.includes(c));
-    
+          
           return c;
-        } 
+        }
+
         let myConfusingArr = [];
         if(this.exceptConfusingSymbols){
           myConfusingArr = this.confusingSymbolArr;
         }
     
-        let str = '';
-        const pwdArr = [];
+        let charArr = [];
+        
         if(this.state.useEn){
-          str += this.english;
-          const c = randomCharExceptConfused(myConfusingArr,this.english);
-          if(c){
-            pwdArr.push(c);
-          }
+          charArr.push(this.english);
         }
         
         if(this.state.useEN){
-          str += this.ENGLISH;
-          const c = randomCharExceptConfused(myConfusingArr,this.ENGLISH);
-          if(c){
-            pwdArr.push(c);
-          }
+          charArr.push(this.ENGLISH);
         }
     
         if(this.state.useNum){
-          str += this.NUMBER;
-          const c = randomCharExceptConfused(myConfusingArr,this.NUMBER);
-          if(c){
-            pwdArr.push(c);
-          }
+          charArr.push(this.NUMBER);
         }
     
         if(this.state.useSm){
-          str += this.SYMBOL;
-          const c = randomCharExceptConfused(myConfusingArr,this.SYMBOL);
-          if(c){
-            pwdArr.push(c);
-          }
+          charArr.push(this.SYMBOL);
         }
-    
+        
         if(this.state.inputSm && this.state.inputSm.length > 0){
-          str += this.state.inputSm;
-          const c = randomCharExceptConfused(myConfusingArr,this.state.inputSm);
-          if(c){
-            pwdArr.push(c);
-          }
+          charArr.push(this.state.inputSm);
         }
-    
-        if(str.length > 0){
-          const arr = str.split("");
-          // 每个输入项都包含，因此密码长度不能小于输入项长度
-          if(this.state.inputLen >= pwdArr.length){
-            const need = this.state.inputLen - pwdArr.length;
-    
-            if(arrayIncludeArray(myConfusingArr,arr)){
-                this.setState({error : '生成密码的符号都是易混淆符号！'});
-                return;
-            }
-    
-            for (let index = 0; index < need; index++) {
-              let element = null;
-              do {
-                const r = Math.floor(Math.random() * arr.length);
-                element = arr[r];
-              } while (myConfusingArr.includes(element));
-              pwdArr.push(element);
-            }
-            
-            this.setState({
-                pwd:pwdArr.join(""),
-                error:null
+        
+        const charLen = charArr.length;
+        if(charLen > 0){
+          const pwdArr = [];
+          //密码长度大于生成密码的元组，那么确保每个元组都
+          if (charLen < this.state.inputLen) {
+
+            charArr.forEach(element => {
+              const c = randomCharExceptConfused(myConfusingArr,element);
+              if(c){
+                pwdArr.push(c);
+              }
             });
 
           }
+
+          while(pwdArr.length < this.state.inputLen) {
+            const e = randomElementInArray(charArr);
+            let c = randomCharExceptConfused(myConfusingArr,e);
+            if (c) {
+              pwdArr.push(c);
+            }
+          }
+
+          this.setState({
+            pwd:pwdArr.join(""),
+            error:null
+          });
+
+        } else {
+          this.setState({error : '没有生成密码的符号哦！'});
+          return;
         }
     }
 
