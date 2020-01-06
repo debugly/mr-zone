@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c766886a66406cd9536d4d605a5592c6",
+    "revision": "0e38bc7c2e04f4e03845ece4726ac032",
     "url": "/mr-zone/index.html"
   },
   {
-    "revision": "e0483a861766aefd85de",
+    "revision": "036989d515ca46cac8db",
     "url": "/mr-zone/static/css/main.3276b470.chunk.css"
   },
   {
-    "revision": "a829cf75576b8a4b7e30",
-    "url": "/mr-zone/static/js/2.316b6ec0.chunk.js"
+    "revision": "4597f026bd10a9d5d20d",
+    "url": "/mr-zone/static/js/2.0fe7cbd5.chunk.js"
   },
   {
     "revision": "e928fe768baa9832b5bc57eae021f30c",
-    "url": "/mr-zone/static/js/2.316b6ec0.chunk.js.LICENSE"
+    "url": "/mr-zone/static/js/2.0fe7cbd5.chunk.js.LICENSE"
   },
   {
-    "revision": "e0483a861766aefd85de",
-    "url": "/mr-zone/static/js/main.2eab7dbe.chunk.js"
+    "revision": "036989d515ca46cac8db",
+    "url": "/mr-zone/static/js/main.528dd2b1.chunk.js"
   },
   {
     "revision": "bdc49cd6c24bc1804d55",
