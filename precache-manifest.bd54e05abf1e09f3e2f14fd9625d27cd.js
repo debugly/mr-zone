@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e38bc7c2e04f4e03845ece4726ac032",
+    "revision": "3dc892bc1952515990beb07adfe81f8f",
     "url": "/mr-zone/index.html"
   },
   {
-    "revision": "036989d515ca46cac8db",
+    "revision": "18265f83669197279b2f",
     "url": "/mr-zone/static/css/main.3276b470.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mr-zone/static/js/2.0fe7cbd5.chunk.js.LICENSE"
   },
   {
-    "revision": "036989d515ca46cac8db",
-    "url": "/mr-zone/static/js/main.528dd2b1.chunk.js"
+    "revision": "18265f83669197279b2f",
+    "url": "/mr-zone/static/js/main.7ae3ccd0.chunk.js"
   },
   {
     "revision": "bdc49cd6c24bc1804d55",

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mr-zone/static/css/main.3276b470.chunk.css",
-    "main.js": "/mr-zone/static/js/main.528dd2b1.chunk.js",
-    "main.js.map": "/mr-zone/static/js/main.528dd2b1.chunk.js.map",
+    "main.js": "/mr-zone/static/js/main.7ae3ccd0.chunk.js",
+    "main.js.map": "/mr-zone/static/js/main.7ae3ccd0.chunk.js.map",
     "runtime-main.js": "/mr-zone/static/js/runtime-main.72ed350b.js",
     "runtime-main.js.map": "/mr-zone/static/js/runtime-main.72ed350b.js.map",
     "static/js/2.0fe7cbd5.chunk.js": "/mr-zone/static/js/2.0fe7cbd5.chunk.js",
     "static/js/2.0fe7cbd5.chunk.js.map": "/mr-zone/static/js/2.0fe7cbd5.chunk.js.map",
     "index.html": "/mr-zone/index.html",
-    "precache-manifest.31c567ed057f0ba6427bd4b2f3665664.js": "/mr-zone/precache-manifest.31c567ed057f0ba6427bd4b2f3665664.js",
+    "precache-manifest.bd54e05abf1e09f3e2f14fd9625d27cd.js": "/mr-zone/precache-manifest.bd54e05abf1e09f3e2f14fd9625d27cd.js",
     "service-worker.js": "/mr-zone/service-worker.js",
     "static/css/main.3276b470.chunk.css.map": "/mr-zone/static/css/main.3276b470.chunk.css.map",
     "static/js/2.0fe7cbd5.chunk.js.LICENSE": "/mr-zone/static/js/2.0fe7cbd5.chunk.js.LICENSE",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.72ed350b.js",
     "static/js/2.0fe7cbd5.chunk.js",
     "static/css/main.3276b470.chunk.css",
-    "static/js/main.528dd2b1.chunk.js"
+    "static/js/main.7ae3ccd0.chunk.js"
   ]
 }
