@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Route } from 'react-router'
-import { BrowserRouter as Router, NavLink, Redirect } from 'react-router-dom'
+import { HashRouter as Router, NavLink, Redirect } from 'react-router-dom'
 
 import UrlCode from './url_code/UrlCode';
 import Timestamp from './timestamp/Timestamp';

@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn deploy`
+
+deploy the build dir to debuly.github.io/mr-zone
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
