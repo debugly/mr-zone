@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # build product
+rm -rf build
 npm run build
 
 localPath=".mrmaster"
@@ -19,8 +20,9 @@ cd $localPath
 git rm -r *
 cd $cp
 
-cp -r dist/* $localPath
-
-gitC add --all
-gitC commit -m "$(date +'updated:%Y-%m-%d %H:%M:%S')"
-gitC push origin master
+if [[ -d 'build' ]];then
+    cp -r build/* $localPath
+    gitC add --all
+    gitC commit -m "$(date +'updated:%Y-%m-%d %H:%M:%S')"
+    gitC push origin master
+fi

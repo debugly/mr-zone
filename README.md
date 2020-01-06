@@ -1,100 +1,68 @@
-# MR.MR
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+## Available Scripts
 
-## Development server
+In the project directory, you can run:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### `yarn start`
 
-## Code scaffolding
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-## Build
+### `yarn test`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Running unit tests
+### `yarn build`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Running end-to-end tests
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Further help
+### `yarn eject`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-# Problems
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```
-Can't bind to 'ngModel' since it isn't a known property of 'select'.
-https://stackoverflow.com/questions/42656195/cant-bind-to-ngmodel-since-it-isnt-a-known-property-of-select
-```
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-```
-Error: StaticInjectorError(AppModule)[HttpClient]:
-打开根模块 AppModule，
-从 @angular/common/http 中导入 HttpClientModule 符号，
-把它加入 @NgModule.imports 数组。
-```
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-```
-[HPM] Error occurred while trying to proxy request /dev/h5/config/appid-config.json from localhost:4200 to https://qipai.56.com (ECONNRESET) (https://nodejs.org/api/errors.html#errors_common_system_errors)
-配置里加上 changeOrigin: true,
-```
+## Learn More
 
-```
-ERROR in src/app/app.service.ts(35,46): error TS2345: Argument of type '{ responseType: "text"; }' is not assignable to parameter of type '{ headers?: HttpHeaders | { [header: string]: string | string[]; }; observe?: "body"; params?: Ht...'.
-  Types of property 'responseType' are incompatible.
-    Type '"text"' is not assignable to type '"json"'.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-https://stackoverflow.com/questions/49771603/types-of-property-responsetype-are-incompatible
-```
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```
-ERROR in src/app/qrcode/qrcode.component.ts(31,22): error TS2304: Cannot find name 'require'.
+### Code Splitting
 
-tsconfig.app.json => "types": ["node"]
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-```
-Observer property value change.
-https://stackoverflow.com/questions/44840735/change-vs-ngmodelchange-in-angular
-```
+### Analyzing the Bundle Size
 
-```
-Display Dynamic HTML
-https://gist.github.com/klihelp/4dcac910124409fa7bd20f230818c8d1
-https://stackoverflow.com/questions/45351434/safe-value-must-use-property-binding-after-bypass-security-with-domsanitizer
-https://www.oodlestechnologies.com/blogs/How-To-Display-Dynamic-HTML-Without-Sanitizing-Or-Filtering-Using-Pipe
-https://blog.csdn.net/big1989wmf/article/details/70144699
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-```
-Responsive Layout
-http://www.alloyteam.com/2015/04/zi-shi-ying-she-ji-yu-xiang-ying-shi-wang-ye-she-ji-qian-tan/
-```
+### Making a Progressive Web App
 
-```
-Shell脚本传递带有空格的参数
-http://blog.51cto.com/dwf07223/1564600
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-```
-js箭头函数
-https://blog.fundebug.com/2017/05/25/arrow-function-for-beginner/
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-```
+### Advanced Configuration
 
-```
-error TS2339: Property 'expImgClicked' does not exist on type 'Window'
-https://ourcodeworld.com/articles/read/337/how-to-declare-a-new-property-on-the-window-object-with-typescript
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-```
---base-href=/mr-zone/
-1、部署到github之后，图片找不到了，所以打包时要配置下
-2、另外代码里图片地址要使用 ./ 而不是 /
-```
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

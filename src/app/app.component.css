@@ -1,9 +1,0 @@
-.grid {
-  background-color: #faebd7;
-}
-
-.item-left{
-    border-right: 1px solid #eaeaea;
-    /*box-shadow: 2px 0 #f5ad56;*/
-    z-index: 10;
-}
