@@ -7,7 +7,7 @@ export class Password extends Component {
         this.english = 'abcdefghigklmnopqrstuvwxyz';
         this.ENGLISH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         this.NUMBER = '0123456789';
-        this.SYMBOL = '-=#!$%*~';
+        this.SYMBOL = '~!@#$%^&*()_+-=[]{}/?<>';
         this.confusingSymbolArr = ['I','l','0','O'];
 
         this.confusingSymbols = this.confusingSymbolArr.join(',');
