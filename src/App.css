@@ -136,21 +136,72 @@ ul.none {
 .mrTable {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   max-width: 1200px;
-  border-top: 1px solid grey;
-  border-left: 1px solid grey;
+  border-radius: .5rem;
+  overflow: hidden;
+  border: 1px solid grey;
+  /* height: 500px;  */
 }
+
+.mrTable .mr2Row {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid gray;
+  width: 100%;
+  /* align-items: center; */
+  /* min-height: 80px; */
+  align-items: stretch;
+  overflow:hidden;
+  /* height: 100%;  */
+}
+
+.mrTable .mr2Row:last-child {
+  border: 0;
+}
+
+.mrTable .mr2Row:nth-of-type(even) {
+  background:#d2d2d2;
+}
+
+/* .mr2Row :nth-child(odd)
+{
+  background:#ff0000;
+} */
+
+/* .mrTable :nth-of-type(2)
+{
+  background:#ff0000;
+} */
+
+/*
+flex-basis: 子项的占用空间;如果设置了值，则子项占用的空间为设置的值；如果没设置或者为 auto，那子项的空间为width/height 的值。
+flex-grow: 用来“瓜分”父项的“剩余空间”；未设置默认为0。
+flex-shrink: 用来“吸收”超出的空间;当父容器不够大时，超出的部分需要由子项来吸收掉；未设置默认为1。
+*/
 
 .mr2Cell {
-  width: 50%;
-  flex-shrink: 0;
-  border-bottom: 1px solid grey;
-  border-right: 1px solid grey;
   padding: 1em;
-  align-items: flex-start;
+  margin: 0px;
+  /* height: 10px; */
+  /* line-height: 1; */
+  /* overflow: hidden; */
+  height: 100%; 
+  align-self: center;
 }
 
+.mr2Cell:nth-of-type(1) {
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 20%;
+  border-right: 1px solid grey;
+}
+
+.mr2Cell:nth-of-type(2) {
+  flex-shrink: 1;
+  flex-grow: 1;
+  /* align-self: center; */
+}
 
 /* 时间戳 样式开始*/
 

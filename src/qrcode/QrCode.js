@@ -42,23 +42,22 @@ export class QrCode extends Component {
         const image = myCanvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
         // window.location.href = image; // it will save locally
         this.saveFile(image, '二维码' + (new Date()).getTime() + '.png');
-      }
+    }
     
       /**
        * 在本地进行文件保存
        * @param  {String} data     要保存到本地的图片数据
        * @param  {String} filename 文件名
        */
-      saveFile(data, filename) {
-    
+    saveFile(data, filename) {
         const save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
         save_link.href = data;
         save_link.download = filename;
-    
+
         const event = document.createEvent('MouseEvents');
         event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
         save_link.dispatchEvent(event);
-      }
+    }
 
     myCanvas() {
         var e = null;

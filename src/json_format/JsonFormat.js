@@ -3,7 +3,6 @@ import { isArray } from 'util';
 import ImgCollapsed from '../Collapsed.gif'
 import ImgExpanded from '../Expanded.gif'
 
-
 export class JsonFormat extends Component {
 
     constructor(props){
@@ -74,7 +73,7 @@ export class JsonFormat extends Component {
 
     doFormat(obj, indent, comma) {
 
-        function ObjectSize(o) {
+        const ObjectSize = (o) => {
             // https://stackoverflow.com/questions/5223/length-of-a-javascript-object
             let size = 0, key;
             for (key in o) {
@@ -85,8 +84,7 @@ export class JsonFormat extends Component {
             return size;
         }
 
-
-        function MakeRows(contents) {
+        const MakeRows = (contents) => {
             let result = '<div class="mrrow">';
             for (const i in contents) {
                 result += '<div class="auto">' + contents[i] + '</div>';
@@ -95,7 +93,7 @@ export class JsonFormat extends Component {
             return result;
         }
 
-        function MakeColumns(indentLevel, contents) {
+        const MakeColumns = (indentLevel, contents) => {
             let result = '<div class="mrcolumn">';
             const c = 'mrindent' + indentLevel;
             result += '<div class="' + c + '"></div>';

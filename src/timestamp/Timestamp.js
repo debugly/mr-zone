@@ -33,6 +33,33 @@ export class Timestamp extends Component {
     }
 
     render() {
+
+        const items = [
+            {"lang":"Objective-C","code":"(UInt64)[[NSDate date] timeIntervalSince1970]"},
+            {"lang":"Bash","code":"date +\"%s\""},
+            {"lang":"JavaScript","code":"Math.floor(new Date().getTime() / 1000)"},
+            {"lang":"Ruby","code":"Time.now"}
+        ];
+
+        const makeDiv = (e,key) => {
+            return (
+                <div className='mr2Row' key={key}>
+                    <div className='mr2Cell uts_left_cell'>
+                        {e.lang}
+                    </div>
+                    <div className='mr2Cell'> 
+                        {e.code}
+                    </div>
+                </div>
+            )
+        };
+
+        const itmesDiv = items.map(
+            (e,idx) => {
+               return makeDiv(e,""+idx)
+            }
+        );
+        
         return (
             <div className="grid">
                 <div className="content">
@@ -42,24 +69,7 @@ export class Timestamp extends Component {
                         </div>
                         <div className='utsHead'> 不同编程语言如何获取Unix时间戳？ </div>
                         <div className='mrTable uts_table'>
-
-                            <div className='mr2Cell uts_left_cell'> Objective - C </div>
-                            <div className='mr2Cell'> (UInt64)[[NSDate
-                                date] timeIntervalSince1970]
-                            </div>
-                            
-                            <div className='mr2Cell uts_left_cell'> Bash </div>
-                            <div className='mr2Cell'> date +"%s"
-                            </div>
-
-                            <div className='mr2Cell uts_left_cell'> JavaScript </div>
-                            <div className='mr2Cell'> Math.floor(new Date().getTime() / 1000)
-                            </div>
-                            
-                            <div className='mr2Cell uts_left_cell'> Ruby </div>
-                            <div className='mr2Cell'> Time.now
-                            </div>
-
+                            {itmesDiv}
                         </div>
                     </div>
                 </div>

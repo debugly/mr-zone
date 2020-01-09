@@ -47,7 +47,7 @@ export class Password extends Component {
             error:null
         });
     
-        const arrayIncludeArray = function(a,b){
+        const arrayIncludeArray = (a,b) => {
           if (a === b) return true;
           if (a == null || b == null) return false;
           
@@ -56,17 +56,16 @@ export class Password extends Component {
               return false;
             }
           }
-    
           return true;
         }
 
-        const randomElementInArray = function(arr){
+        const randomElementInArray = (arr) => {
           const i = Math.floor(Math.random() * arr.length);
           let element = arr[i];
           return element;
         }
     
-        const randomCharExceptConfused = function(cArr,str){
+        const randomCharExceptConfused = (cArr,str) => {
           const arr = str.split("");
           
           if(arrayIncludeArray(cArr,arr)){
