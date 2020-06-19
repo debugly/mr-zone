@@ -53,7 +53,7 @@ class Footer extends React.Component {
     return (
       <div className='footer'>
         <img src={logo} className="footer-logo footer-logo-1" alt="logo" />
-        <span> MR工具箱 © {new Date().getFullYear()} debulgy.cn </span>
+        <span> MR工具箱 © {new Date().getFullYear()} <a href='https://debugly.cn' target='blank'>debugly.cn</a> </span>
         <img src={logo} className="footer-logo footer-logo-2" alt="logo" />
       </div>
     )

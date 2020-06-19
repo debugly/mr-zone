@@ -8,7 +8,7 @@ export class Password extends Component {
         this.ENGLISH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         this.NUMBER  = '0123456789';
         this.SYMBOL  = '~!@#$%^&*()_+-=[]{}/?<>';
-        this.confusingSymbolArr = ['I','l','0','O'];
+        this.confusingSymbolArr = ['I','l','0','o','O'];
 
         this.confusingSymbols = this.confusingSymbolArr.join(',');
         this.state = {
@@ -81,7 +81,7 @@ export class Password extends Component {
         }
 
         let myConfusingArr = [];
-        if(this.exceptConfusingSymbols){
+        if(this.state.exceptConfusingSymbols){
           myConfusingArr = this.confusingSymbolArr;
         }
     
@@ -136,108 +136,150 @@ export class Password extends Component {
           });
 
         } else {
-          this.setState({error : '没有生成密码的符号哦！'});
+          this.setState({error : '没有可用于生成密码的符号哦！'});
           return;
         }
     }
 
+    pwdElement = (pwd,error) => {
+
+        let pwd_input = (<div id='pwd-length' >
+                         <textarea id='pwd-length-txt' rows="1" placeholder='密码长度'  defaultValue='' onChange={ (e) => {
+                                this.setState({
+                                    inputLen:e.target.value
+                                },() => {
+                                    this.generate();
+                                });
+                            } } ></textarea>
+                            <button id='pwd-length-copy' onClick={
+                            (e) => {
+                                if (pwd && pwd.length > 0) {
+                                    const superDiv = document.getElementById('pwd-txt')
+                                    if(superDiv){
+                                        superDiv.lastElementChild.select()
+                                        document.execCommand('copy')
+                                    }
+                                } else {
+                                    alert('请输入密码长度！')
+                                }
+                            }
+                        }></button>
+                         </div>
+                        );
+
+        var e = null;
+        if (error && error.length > 0) {
+            e = (
+                <div>
+                    <span className="error">{error}</span>
+                </div>
+            );
+        } else if(pwd && pwd.length > 0) {
+            e = (
+                <div>
+                    <h2>生成密码</h2>
+                    {pwd_input}
+
+                    <div id='pwd-txt'>
+                        <textarea value={ pwd } readOnly></textarea>
+                    </div>
+                    
+                </div>
+            );
+        } else {
+            e = (
+                <div>
+                    <h2>生成密码</h2>
+                    {pwd_input}
+                </div>
+            );
+        }
+        return e;
+    }
+
     render() {
+        let pwdElement = this.pwdElement(this.state.pwd,this.state.error)
         return (
             <div>
-                <div className="item">
-                    <label>
-                        <input type='checkbox' onChange= { (e) => {
-                            this.setState({
-                                useEn:e.target.checked
-                            },() => {
-                                this.generate();
-                            });
-                        } } checked={this.state.useEn} />
-                        小写英文:{this.english}
-                    </label>
+                <div>
+                    <div className="item">
+                        <label>
+                            <input type='checkbox' onChange= { (e) => {
+                                this.setState({
+                                    useEn:e.target.checked
+                                },() => {
+                                    this.generate();
+                                });
+                            } } checked={this.state.useEn} />
+                            小写英文:{this.english}
+                        </label>
+                    </div>
+
+                    <div className="item">
+                        <label>
+                            <input type='checkbox' onChange= { (e) => {
+                                
+                                this.setState({
+                                    useEN:e.target.checked
+                                },() => {
+                                    this.generate();
+                                });
+                            } } checked={this.state.useEN} />
+                            大写英文:{this.ENGLISH}
+                        </label>
+                    </div>
+
+                    <div className="item">
+                        <label>
+                            <input type='checkbox' onChange= {  (e) => {
+                                this.setState({
+                                    useNum:e.target.checked
+                                },() => {
+                                    this.generate();
+                                });
+                            }  } checked={this.state.useNum} />
+                            数字:{this.NUMBER}
+                        </label>
+                    </div>
+
+                    <div className="item">
+                        <label>
+                            <input type='checkbox' onChange= { (e) => {
+                                this.setState({
+                                    useSm:e.target.checked
+                                },() => {
+                                    this.generate();
+                                });
+                            }  } checked={this.state.useSm} />
+                            符号:{this.SYMBOL}
+                        </label>
+                    </div>
+
+                    <div className="item">
+                        <label>
+                            <input type='checkbox' onChange= { (e) => {
+                                this.setState({
+                                    exceptConfusingSymbols:e.target.checked
+                                },() => {
+                                    this.generate();
+                                });
+                            }  } checked={this.state.exceptConfusingSymbols} />
+                            排除容易混淆符号:{this.confusingSymbols}
+                        </label>
+                    </div>
+
+                    <div className="item">
+                        <textarea rows="2" placeholder="添加额外自定义符号..." value={this.state.inputSm} onChange={ (e) => {
+                                this.setState({
+                                    inputSm:e.target.value
+                                },() => {
+                                    this.generate();
+                                });
+                            } } ></textarea>
+                    </div>
                 </div>
 
-                <div className="item">
-                    <label>
-                        <input type='checkbox' onChange= { (e) => {
-                            
-                            this.setState({
-                                useEN:e.target.checked
-                            },() => {
-                                this.generate();
-                            });
-                        } } checked={this.state.useEN} />
-                        大写英文:{this.ENGLISH}
-                    </label>
-                </div>
-
-                <div className="item">
-                    <label>
-                        <input type='checkbox' onChange= {  (e) => {
-                            this.setState({
-                                useNum:e.target.checked
-                            },() => {
-                                this.generate();
-                            });
-                        }  } checked={this.state.useNum} />
-                        数字:{this.NUMBER}
-                    </label>
-                </div>
-
-                <div className="item">
-                    <label>
-                        <input type='checkbox' onChange= { (e) => {
-                            this.setState({
-                                useSm:e.target.checked
-                            },() => {
-                                this.generate();
-                            });
-                        }  } checked={this.state.useSm} />
-                        符号:{this.SYMBOL}
-                    </label>
-                </div>
-
-                <div className="item">
-                    <label>
-                        <input type='checkbox' onChange= { (e) => {
-                            this.setState({
-                                exceptConfusingSymbols:e.target.checked
-                            },() => {
-                                this.generate();
-                            });
-                        }  } checked={this.state.exceptConfusingSymbols} />
-                        排除容易混淆符号:{this.confusingSymbols}
-                    </label>
-                </div>
-
-                <div className="item">
-                    <textarea rows="2" placeholder="添加额外自定义符号..." value={this.state.inputSm} onChange={ (e) => {
-                            this.setState({
-                                inputSm:e.target.value
-                            },() => {
-                                this.generate();
-                            });
-                        } } ></textarea>
-                </div>
-
-                <h3>生成密码</h3>
-
-                <div className="item">
-                    <textarea rows="1" placeholder="输入密码长度..."  defaultValue='' onChange={ (e) => {
-                            this.setState({
-                                inputLen:e.target.value
-                            },() => {
-                                this.generate();
-                            });
-                        } } ></textarea>
-                </div>
-                
-                <div className="item">
-                    <span>
-                        { this.state.pwd }
-                    </span>
-                    <span className="error">{this.state.error}</span>
-                </div>
+                { pwdElement }
 
             </div>
         );
