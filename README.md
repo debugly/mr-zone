@@ -10,10 +10,13 @@
 
 工具包括 URL 编解码、二维码生成及 PNG 下载、实时时间戳、JSON 格式化及树形折叠、密码生成器和 Unicode 编解码。工具间切换和返回时保留当前页面内的输入，不持久化密码。密码使用 Web Crypto 随机数，支持字符类别、自定义字符、长度及排除混淆字符。
 
+首页顶部的 **Digital Clock** 入口位于 MR Tools 左侧，打开本地时区的翻页时钟，显示时、分、秒；点击 **Home** 返回首页。
+
 ## 结构
 
 - `extension/index.html`：MR Tools 标签管理页面及工具箱容器。
 - `extension/app.js`、`style.css`、`background.js`、`manifest.json`：以本地 Tab Out 为基础，保留核心逻辑并更新产品名称。
+- `extension/clock.js`、`clock.css`：翻页时钟、响应式布局和动画。
 - `extension/tools.js`、`tools.css`：工具逻辑、页面切换及隔离样式。
 - `extension/vendor/qrious.js`：从原 MR Zone source map 恢复的 QRious / Nevis 本地模块，保留原始许可证声明；无需 CDN 或动态代码执行。
 

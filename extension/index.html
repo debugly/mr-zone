@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tools.css">
+  <link rel="stylesheet" href="clock.css">
 </head>
 <body>
 <div class="container" id="tab-dashboard">
@@ -27,7 +28,10 @@
       <!-- "Friday, April 4, 2026" — written by getDateDisplay() in app.js -->
       <div class="date" id="dateDisplay"></div>
     </div>
-    <button class="mr-button" id="mr-open" type="button">MR Tools ↗</button>
+    <div class="home-actions">
+      <button class="mr-button" id="clock-open" type="button">Digital Clock</button>
+      <button class="mr-button" id="mr-open" type="button">MR Tools ↗</button>
+    </div>
   </header>
 
   <!-- ================================================================
@@ -132,6 +136,15 @@
   <nav class="mr-nav" aria-label="工具选择" id="mr-nav"></nav>
   <section class="mr-panel" id="mr-panel" aria-label="工具内容"></section>
 </main>
+<main class="container clock-page" id="clock-page" hidden>
+  <header><div class="header-left"><h1>Digital Clock</h1><p class="date" id="clock-date"></p></div><button class="mr-button" id="clock-back" type="button">Home</button></header>
+  <section class="clock-stage" aria-label="本地时间">
+    <p class="clock-eyebrow">MAKE EVERY SECOND COUNT</p>
+    <div class="flip-clock" id="flip-clock" role="timer" aria-live="off"></div>
+    <p class="clock-zone" id="clock-zone"></p>
+  </section>
+</main>
+<script src="clock.js"></script>
 <script src="vendor/qrious.js"></script>
 <script src="tools.js"></script>
 <!-- Personal config (gitignored) — defines LOCAL_LANDING_PAGE_PATTERNS etc. -->
