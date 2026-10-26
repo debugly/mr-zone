@@ -74,7 +74,7 @@ git pull
 
 - 稍后阅读的标签及归档使用 `chrome.storage.local` 保存在本机。
 - 工具转换、密码生成和二维码编码在本地完成，无需远程计算服务。
-- 页面沿用 Tab Out 的 Google Fonts 引用；字体加载可能产生网络请求。
+- 页面沿用 Tab Out 的 Google Fonts 引用；字体加载可能产生网络请求；标签网站图标也通过 Google favicon 服务加载。
 - 扩展使用 `tabs`、`activeTab` 和 `storage` 权限，提供标签管理和本地保存功能。
 
 ## 项目结构
@@ -94,7 +94,7 @@ extension/
 └── vendor/qrious.js     # 本地二维码编码器及依赖
 ```
 
-本仓库根目录保留旧版网站发布文件；旧版 React 源码位于 `source` 分支。当前扩展应从 `extension/` 加载，根目录的旧网站文件不作为扩展入口。
+旧版网站的构建产物、Service Worker 和自定义域名配置已清理，可通过 Git 历史查看；旧版 React 源码位于 `source` 分支。当前扩展从 `extension/` 加载。
 
 ## 开发与验证
 
